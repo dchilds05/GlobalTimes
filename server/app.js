@@ -30,18 +30,20 @@ app.locals.title = `${capitalized(projectName)} created with Ironlauncher`;
 
 // 👇 Start handling routes here
 
-/*const authRoutes = require('./routes/auth-routes');
-app.use('/auth', authRoutes);
+const countryRouter = require('./routes/country.routes');
+app.use('/country', countryRouter);
 
-const projectRouter = require('./routes/project.routes')
-app.use('/api/projects', projectRouter)
+const editUserRouter = require('./routes/editUser.routes');
+app.use('/editUser', editUserRouter);
 
+const homeRouter = require('./routes/home.routes');
+app.use('/', homeRouter);
 
-const taskRouter = require('./routes/task.routes')
-app.use('/api/tasks', taskRouter)
+const savedArticleRouter = require('./routes/savedArticle.router');
+app.use('/savedArticles', savedArticleRouter);
 
-const index = require('./routes/index');
-app.use('/', index);*/
+const signupRouter = require('./routes/signup.router');
+app.use('/auth', signupRouter);
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require('./error-handling')(app);
