@@ -4,10 +4,13 @@ const router = express.Router();
 const bcrypt = require('bcryptjs');
 const saltRounds = process.env.SALT || 10;
 
-const User = require('./../models/User.model');
+const mongoose = require ("mongoose")
+const User = require('../models/User.model');
+
 
 router.post('/signup', (req, res)=>{
 	const {username, password} = req.body
+
 	if(!username || !password) res.status(400).json({message: 'Please provide both a username and password'})
 
 	User.findOne({username})
