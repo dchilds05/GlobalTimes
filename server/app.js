@@ -14,6 +14,11 @@ const app = express();
 // ℹ️ This function is getting exported from the config folder. It runs most pieces of middleware
 require('./config')(app);
 
+app.use((req, res, next) => {
+	// If no routes match, send them the React HTML.
+	res.sendFile(__dirname + "/public/index.html");
+  });
+
 // default value for title local
 const projectName = 'Project3';
 const capitalized = (string) =>
