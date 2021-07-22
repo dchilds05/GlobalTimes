@@ -27,16 +27,13 @@ app.locals.title = `${capitalized(projectName)} created with Ironlauncher`;
 // 👇 Start handling routes here
 
 /*const countryRouter = require('./routes/country.routes');
-app.use('/country', countryRouter);
-
-const editUserRouter = require('./routes/editUser.routes');
-app.use('/editUser', editUserRouter);
-
-const homeRouter = require('./routes/home.routes');
-app.use('/', homeRouter);
+app.use('/api/country', countryRouter);
 
 const savedArticleRouter = require('./routes/savedArticle.router');
-app.use('/savedArticles', savedArticleRouter);*/
+app.use('/api/savedArticles', savedArticleRouter);*/
+
+const editUserRouter = require('./routes/editUser.routes');
+app.use('/api/editUser', editUserRouter);
 
 const signupRouter = require('./routes/auth.routes');
 app.use('/api/auth', signupRouter);
