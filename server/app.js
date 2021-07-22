@@ -26,7 +26,6 @@ const capitalized = (string) =>
 
 app.locals.title = `${capitalized(projectName)} created with Ironlauncher`;
 
-//redeploy to heroku
 
 
 // 👇 Start handling routes here
