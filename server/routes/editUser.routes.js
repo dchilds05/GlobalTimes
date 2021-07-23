@@ -26,9 +26,16 @@ router.delete("/", (req, res) => {
     const {username, password} = req.body
     User.findByIdAndRemove(req.session.currentUser._id)
     .then((removedUser) => {
-        console.log(`${removedUser} successfully removed`)
-        res.json(updatedUser)})
+        console.log(`${removedUser.username} successfully removed`)
+        req.session.destroy((err) => {
+            if (err) {
+                res.status(400).json({ message: 'Something went wrong! Yikes!' });
+            } else {
+                res.json({message: 'User successfully logged out and removed'});
+            }
+        })
     .catch((err) => res.json(err))
+    })
 })
 
 module.exports = router;
