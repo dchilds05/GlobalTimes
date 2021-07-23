@@ -3,6 +3,7 @@ const router = express.Router();
 const mongoose = require ("mongoose")
 const User = require('../models/User.model');
 
+//ADD SAVED ARTICLES TO MY USER OBJECT
 router.put("/", (req, res) => {
     const article = req.body
     console.log(req.session)
@@ -19,7 +20,7 @@ router.put("/", (req, res) => {
     .catch((err) => res.json(err))
 })
 
-
+//DELETE ARTICLES FROM MY "SAVED ARTICLES"
 router.put("/:web_url", (req, res) => {
     const {web_url} = req.params
     const user = req.session.currentUser
