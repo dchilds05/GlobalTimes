@@ -26,6 +26,8 @@ app.locals.title = `${capitalized(projectName)} created with Ironlauncher`;
 
 // 👇 Start handling routes here
 
+const isLoggedIn = require('./middleware/isLoggedIn');
+
 const commentRouter = require('./routes/comment.routes');
 app.use('/api/comment', commentRouter);
 

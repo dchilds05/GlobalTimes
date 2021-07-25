@@ -9,9 +9,9 @@ const User = require('../models/User.model');
 
 
 router.post('/signup', (req, res)=>{
-	const {username, password} = req.body
+	const {username, password, country} = req.body
 
-	if(!username || !password) res.status(400).json({message: 'Please provide both a username and password'})
+	if(!username || !password || !country) res.status(400).json({message: 'Please provide a username, a password, and a country of residence'})
 
 	User.findOne({username})
 	.then(user=> {
@@ -22,7 +22,7 @@ router.post('/signup', (req, res)=>{
 			const salt = bcrypt.genSaltSync(saltRounds);
 		    const hash = bcrypt.hashSync(password, salt);
 
-			User.create({username, password: hash})
+			User.create({username, password: hash, country: country.toLowerCase()})
 			.then( newUser => res.json(newUser))
 			.catch(err=>res.json(err))
 		}
@@ -61,13 +61,13 @@ router.get('/logout', (req, res) => {
 	});
 })
 
-/*outer.get('/isloggedin', (req, res) => {
+router.get('/isloggedin', (req, res) => {
 	const loggedInUser = req.session.currentUser 
 		if (loggedInUser) {
 			res.json(loggedInUser);
 		} else {
-			res.status(403).json({ message: 'Unauthorised!' });
+			res.status(403).json({ message: 'User not logged in' });
 		}
-});*/
+});
 
 module.exports = router;

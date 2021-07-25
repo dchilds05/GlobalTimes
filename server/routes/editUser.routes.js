@@ -11,12 +11,12 @@ router.get("/", (req,res) => {
 })
 
 router.put("/", (req, res) => {
-    const {username, password} = req.body
+    const {username, password, country} = req.body
 
     const salt = bcrypt.genSaltSync(saltRounds);
 	const hash = bcrypt.hashSync(password, salt);
 
-    User.findByIdAndUpdate(req.session.currentUser._id, {username, password: hash}, {new: true})
+    User.findByIdAndUpdate(req.session.currentUser._id, {username, password: hash, country: country.toLowerCase()}, {new: true})
     .then((updatedUser) => {
         res.json(updatedUser)})
     .catch((err) => res.json(err))
