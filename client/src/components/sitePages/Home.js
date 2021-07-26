@@ -5,7 +5,7 @@ import am4geodata_worldHigh from "./../../../node_modules/@amcharts/amcharts4-ge
 
 export default function Home(props) {
     
-    useEffect((props) => {
+    useEffect(() => {
 
         // Create map instance
         var chart = am4core.create("chartDiv", am4maps.MapChart);
@@ -24,18 +24,19 @@ export default function Home(props) {
 
         // Configure series
         let polygonTemplate = polygonSeries.mapPolygons.template;
-        polygonTemplate.events.on("hit", function(ev) {
-            // zoom to an object
-            //ev.target.series.chart.zoomToMapObject(ev.target);
-           
-            // get object info
-            console.log("event: ",ev);
 
-            //push to new page
-            props.setCountryObject(ev.target);
-            props.history.push(`/country/${ev.target.dataItem.dataContext.name}`);
+        //Click Event
+        polygonTemplate.events.on("hit", function(ev) {
+            console.log("country info: ", ev.target.dataItem.dataContext);
+
+            ev.target.series.chart.zoomToMapObject(ev.target);
+            
+            setTimeout (() => {
+                props.setCountryObject(ev.target.dataItem.dataContext.id);
+                props.history.push(`/country/${ev.target.dataItem.dataContext.name}`);
+            }, 1000)
           });
-          
+
         polygonTemplate.tooltipText = "{name}";
         polygonTemplate.fill = am4core.color("#74B266");
 
