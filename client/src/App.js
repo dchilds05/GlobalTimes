@@ -4,6 +4,7 @@ import {BrowserRouter, Switch, Route} from "react-router-dom"
 import * as auth from "./service/auth-service"
 import Login from "./components/auth/Login"
 import NavBar from "./components/navbar/NavBar"
+import Home from "./components/sitePages/Home"
 
 
 function App() {
@@ -12,10 +13,13 @@ function App() {
   const [loggedInUser, setLoggedInUser] = useState(initialLoginState)
 
   useEffect(() => {
-    const response = auth.isLoggedIn()
-    if(response._id) setLoggedInUser(response)
-    else setLoggedInUser(initialLoginState)
-  }, [loggedInUser])
+    auth.isLoggedIn()
+    .then((user) => {
+      console.log("user: ", user)
+      if(user._id) setLoggedInUser(user)
+    })
+    
+  }, [])
 
   return (
     <div className="App">
@@ -23,6 +27,7 @@ function App() {
         <NavBar loggedInUser={loggedInUser}/>
         <Switch>
           <Route exact path = "/" render={props => <Login {...props} setLoggedInUser={setLoggedInUser}/>}/>
+          <Route exact path = "/home" component={Home}/>
         </Switch>
       </BrowserRouter>
     </div>

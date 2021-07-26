@@ -1,6 +1,14 @@
 import React from "react"
 
 export default function NavBar(props) {
+
+    /*if(props.loggedInUser.username){
+        const capitalName = "";
+        for (let i=0; i<capitalName.length; i++){
+            if(
+        }
+    }*/
+
     return (
 
         <div className="navBar">
@@ -13,8 +21,11 @@ export default function NavBar(props) {
             </div>
            
             <div className= "navDiv3">
-                {props.loggedInUser && <p classname= "navPar">{props.loggedInUser}</p>}
                 <img className = "navImg2" src="./userPhoto.png" alt="user"/>
+                <div className="navRightSmallDiv">
+                    {props.loggedInUser && <p className= "navPar">{props.loggedInUser.username.toUpperCase()}</p>}
+                </div>
+                
             </div>
         </div>
     )

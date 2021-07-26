@@ -24,6 +24,7 @@ export default function Login (props) {
             updateState(initialFormState);
             props.setLoggedInUser(loggedInUser);
             console.log("logged in user: ", loggedInUser)
+            props.history.push("/home");
           })
           .catch(error => console.log(error));
       };
