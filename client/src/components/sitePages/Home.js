@@ -1,7 +1,12 @@
-import React, {useEffect} from "react";
+import React, {useState, useEffect} from "react";
 import * as am4core from "./../../../node_modules/@amcharts/amcharts4/core";
 import * as am4maps from "./../../../node_modules/@amcharts/amcharts4/maps";
 import am4geodata_worldHigh from "./../../../node_modules/@amcharts/amcharts4-geodata/worldHigh";
+const axios = require('axios');
+const apiKey = process.env.APIKEY || "zIAVHGhXDlbB9bHGAkgmKitNUXY7VAn7";
+
+
+
 
 export default function Home(props) {
     
@@ -27,14 +32,16 @@ export default function Home(props) {
 
         //Click Event
         polygonTemplate.events.on("hit", function(ev) {
-            console.log("country info: ", ev.target.dataItem.dataContext);
 
             ev.target.series.chart.zoomToMapObject(ev.target);
+
+            let countryName = ev.target.dataItem.dataContext.name.toLowerCase()
             
-            setTimeout (() => {
-                props.setCountryObject(ev.target.dataItem.dataContext.id);
+            axios.get(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${countryName}&api-key=${apiKey}`)
+            .then((results) => {
+                props.updateArticlesArr(results.data.response.docs)
                 props.history.push(`/country/${ev.target.dataItem.dataContext.name}`);
-            }, 1000)
+            })
           });
 
         polygonTemplate.tooltipText = "{name}";
@@ -79,3 +86,4 @@ export default function Home(props) {
         </div>
     )
 }
+

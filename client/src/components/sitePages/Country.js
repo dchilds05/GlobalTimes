@@ -1,35 +1,31 @@
-import React, {useEffect} from "react";
-import countries from "./../../../node_modules/@amcharts/amcharts4-geodata/data/countries";
-import * as am4core from "./../../../node_modules/@amcharts/amcharts4/core";
-import * as am4maps from "./../../../node_modules/@amcharts/amcharts4/maps";
+import React, {useState, useEffect} from "react";
+import {apiCall} from "./../../service/api-service"
 
 
 export default function Country(props) {
 
-    const countryName = props.match.params.name
-    const countryId = props.countryObject
-    const am4geodata_country = require(`./../../../node_modules/@amcharts/amcharts4-geodata/${countries.countryId[1]}`);
+    const countryName = props.match.params.name;
+    const country = countryName.toLowerCase();
 
-    useEffect(() => {
+    console.log("state: ", props.articlesArr)
 
-        // Create map instance
-        var chart = am4core.create("chartDiv", am4maps.MapChart);
-
-        // Set map definition
-        chart.geodata = am4geodata_country;
-
-        // Set projection
-        chart.projection = new am4maps.projections.Orthographic();
-
-    }, []);
- 
-
-
-
-    return (
-        <div>
-            <h1>{countryName}</h1>
-            <div id="chartDiv"></div>
-        </div>
-    )
+    //HOW DO I GET THE RETURN TO RENDER AFTER I RECEIVE THE RESULTS OF AN API CALL? HERE I HAVE CALLED THE API FROM THE PREVIOUS PAGE, RENDERING THIS PAGE WITHIN THE .THEN, BUT STILL NOT DISPLAYING RESULTS EVEN THOUGH CONSOLE LOG SHOWS RESULTS COMING IN. WHAT DO I DO?
+        return (
+            <div>
+                {props.articlesArr && props.articlesArr.map( article => {
+                    <div>
+                        <a href={`${article.web_url}`}>
+                            <h1>{article.headline.main}</h1>
+                            <img src={article.multimedia[0]} alt="nothing" />
+                            <p>{article.abstract}</p>
+                            <div>
+                                <p>Category: {article.section_name}</p>
+                                <p>Publication Date: {article.pub_date}</p>
+                            </div>
+                        </a>
+                    </div>
+                })}
+            </div>
+        )
+    
 }
