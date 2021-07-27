@@ -1,6 +1,10 @@
-import React from "react"
+import React, {useState} from "react"
+import {Link} from "react-router-dom"
+import * as auth from "./../../service/auth-service"
 
 export default function NavBar(props) {
+
+    const [state, setState] = useState([])
 
     let displayName = "";
 
@@ -10,6 +14,24 @@ export default function NavBar(props) {
             else {displayName += props.loggedInUser.username[i]}
         }
     }
+
+    function logOut(){
+        auth.logout()
+        .then((message) => {
+           console.log(message);
+           setState(...state);
+        })
+    }
+
+    function popOutRight(){
+        var userBurger = document.querySelector(".rightBurgerBar");
+        if (userBurger.style.display === "block") {
+            userBurger.style.display = "none";
+          } else {
+            userBurger.style.display = "block";
+          }
+    }
+
 
     return (
 
@@ -23,10 +45,14 @@ export default function NavBar(props) {
             </div>
            
             <div className= "navDiv3">
-                <img className = "navImg2" src="./userPhoto.png" alt="user"/>
+                <img onClick={() => popOutRight()} className = "navImg2" src="./userPhoto.png" alt="user"/>
                 <div className="navRightSmallDiv">
                     {props.loggedInUser && <p className= "navPar">{displayName}</p>}
                 </div>
+                <ul className="rightBurgerBar" style={{display: "none"}}> 
+                    <li><Link to="/editUser">Edit Account Details</Link></li>
+                    <li onClick={() => logOut()}>Logout</li>
+                </ul>
                 
             </div>
         </div>

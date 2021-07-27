@@ -17,7 +17,7 @@ export default function Country(props) {
             console.log("result: ", results.data.response.docs[0].multimedia[0])
         })
         .catch(err=>console.log(err))
-    }, [countryName])
+    }, [])
     
         return (
             <div>
