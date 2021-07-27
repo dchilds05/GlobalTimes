@@ -4,6 +4,7 @@ import {BrowserRouter, Switch, Route, Redirect} from "react-router-dom"
 import * as auth from "./service/auth-service"
 import Login from "./components/auth/Login"
 import Signup from "./components/auth/Signup"
+import EditUser from "./components/auth/EditAccount"
 import NavBar from "./components/navbar/NavBar"
 import Home from "./components/sitePages/Home"
 import Country from "./components/sitePages/Country"
@@ -34,6 +35,9 @@ function App() {
             }/>
           <Route exact path = "/home" render={props => (
             loggedInUser ? <Home {...props} loggedInUser={loggedInUser}/> : <Redirect to="/"/>
+            )}/>
+          <Route exact path = "/editUser" render={props => (
+            loggedInUser ? <EditUser {...props} loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser}/> : <Redirect to="/"/>
             )}/>
           <Route exact path = "/country/:name" render={props => (
             loggedInUser ? <Country {...props} loggedInUser={loggedInUser}/> : <Redirect to="/"/>

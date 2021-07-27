@@ -5,10 +5,10 @@ const User = require('../models/User.model');
 const bcrypt = require('bcryptjs');
 const saltRounds = process.env.SALT || 10;
 
-router.get("/", (req,res) => {
+/*router.get("/", (req,res) => {
     const user = req.session.currentUser
     res.json(user)
-})
+})*/
 
 router.put("/", (req, res) => {
     const {username, password, country} = req.body
@@ -23,7 +23,7 @@ router.put("/", (req, res) => {
 })
 
 router.delete("/", (req, res) => {
-    const {username, password} = req.body
+    //const {username, password} = req.body
     User.findByIdAndRemove(req.session.currentUser._id)
     .then((removedUser) => {
         console.log(`${removedUser.username} successfully removed`)
