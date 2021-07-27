@@ -17,8 +17,8 @@ export default function NavBar(props) {
 
     function logOut(){
         auth.logout()
-        .then((message) => {
-           console.log(message);
+        .then((data) => {
+           console.log(data.message);
            setState(...state);
         })
     }
@@ -32,12 +32,24 @@ export default function NavBar(props) {
           }
     }
 
+    function popOutLeft(){
+        var userBurger = document.querySelector(".leftBurgerBar");
+        if (userBurger.style.display === "block") {
+            userBurger.style.display = "none";
+          } else {
+            userBurger.style.display = "block";
+          }
+    }
+
 
     return (
 
         <div className="navBar">
             <div className= "navDiv1">
-                <img className = "navImg1" src="./hamburger.png" alt="hamburger"/>
+                <img onClick={() => popOutLeft()} className = "navImg1" src="./hamburger.png" alt="hamburger"/>
+                <ul className="leftBurgerBar" style={{display: "none"}}> 
+                    <li><Link to="/home">Home</Link></li>
+                </ul>
             </div>
 
             <div className= "navDiv2">
@@ -53,7 +65,6 @@ export default function NavBar(props) {
                     <li><Link to="/editUser">Edit Account Details</Link></li>
                     <li onClick={() => logOut()}>Logout</li>
                 </ul>
-                
             </div>
         </div>
     )
