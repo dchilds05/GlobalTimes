@@ -1,10 +1,8 @@
-import React, {useState} from "react"
+import React from "react"
 import {Link} from "react-router-dom"
 import * as auth from "./../../service/auth-service"
 
 export default function NavBar(props) {
-
-    const [state, setState] = useState([])
 
     let displayName = "";
 
@@ -20,7 +18,7 @@ export default function NavBar(props) {
         .then((data) => {
            console.log(data.message);
            popOutRight();
-           setState(...state);
+           props.setLoggedInUser(null);
         })
     }
 

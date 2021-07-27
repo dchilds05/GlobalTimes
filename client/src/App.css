@@ -87,6 +87,7 @@ body {
 
 .navDiv1:hover, .navDiv3:hover {
   background-color: gray;
+  cursor: pointer;
 }
 
 .navRightSmallDiv p {
@@ -118,6 +119,7 @@ body {
 
 .rightBurgerBar li:hover, .leftBurgerBar li:hover {
   background-color: rgb(116,178,103, .8);
+  cursor: pointer;
 }
 
 .leftBurgerBar {

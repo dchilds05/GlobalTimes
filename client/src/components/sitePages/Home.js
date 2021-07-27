@@ -33,7 +33,7 @@ export default function Home(props) {
 
             setTimeout(() => {
                 props.history.push(`/country/${ev.target.dataItem.dataContext.name}`);
-            }, 1000)
+            }, 750)
           });
 
         polygonTemplate.tooltipText = "{name}";
@@ -69,14 +69,13 @@ export default function Home(props) {
         chart.panBehavior = "rotateLongLat";
     }, [])
 
-    
-
     return (
         <div>
             <h1>Search news from around the world!</h1>
             <div id="chartDiv"></div>
-            <h2>Click a country to browse the New York Times database for recent articles from your country of choice</h2>
+            <h2>Browse the New York Times database for recent articles from your country of choice</h2>
         </div>
     )
 }
+
 
