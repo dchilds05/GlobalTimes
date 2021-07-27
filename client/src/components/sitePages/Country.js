@@ -24,12 +24,12 @@ export default function Country(props) {
                 {countryArr && countryArr.map( article => {
                     return <div>
                         <a href={`${article.web_url}`} style={{ textDecoration: 'none', color: "black" }}>
-                            <h1>{article.headline.main}</h1>
-                            {article.multimedia[0] && <img src={`https://static01.nyt.com/${article.multimedia[0].url}`} alt="nothing" />}
-                            <p>{article.abstract}</p>
+                            {article.headline.main && <h1>{article.headline.main}</h1>}
+                                {article.multimedia[0] && <img src={`https://static01.nyt.com/${article.multimedia[0].url}`} alt="nothing" />}
+                                {article.abstract && <p>{article.abstract.substring(0, 250)}...</p>}
                             <div>
-                                <p>Category: {article.section_name}</p>
-                                <p>Publication Date: {article.pub_date}</p>
+                                {article.section_name && <p>Category: {article.section_name}</p>}
+                                {article.pub_date && <p>Publication Date: {article.pub_date}</p>}
                             </div>
                         </a>
                     </div>
