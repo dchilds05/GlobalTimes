@@ -23,7 +23,7 @@ export default function Country(props) {
             <div>
                 {countryArr && countryArr.map( article => {
                     return <div>
-                        <a href={`${article.web_url}`}>
+                        <a href={`${article.web_url}`} style={{ textDecoration: 'none', color: "black" }}>
                             <h1>{article.headline.main}</h1>
                             {article.multimedia[0] && <img src={`https://static01.nyt.com/${article.multimedia[0].url}`} alt="nothing" />}
                             <p>{article.abstract}</p>

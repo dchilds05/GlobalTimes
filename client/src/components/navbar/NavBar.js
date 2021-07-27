@@ -49,7 +49,7 @@ export default function NavBar(props) {
             <div className= "navDiv1">
                 <img onClick={() => popOutLeft()} className = "navImg1" src="./hamburger.png" alt="hamburger"/>
                 <ul className="leftBurgerBar" style={{display: "none"}}> 
-                    <li onClick={() => popOutLeft()}><Link to="/home">Home</Link></li>
+                    <li onClick={() => popOutLeft()}><Link to="/home" style={{ textDecoration: 'none', color: "black" }}>Home</Link></li>
                 </ul>
             </div>
 
@@ -63,7 +63,7 @@ export default function NavBar(props) {
                     {props.loggedInUser && <p className= "navPar">{displayName}</p>}
                 </div>
                 <ul className="rightBurgerBar" style={{display: "none"}}> 
-                    <li onClick={() => popOutRight()}><Link to="/editUser">Edit Account Details</Link></li>
+                    <li onClick={() => popOutRight()}><Link to="/editUser" style={{ textDecoration: 'none', color: "black" }}>Edit Account Details</Link></li>
                     <li onClick={() => logOut()}>Logout</li>
                 </ul>
             </div>

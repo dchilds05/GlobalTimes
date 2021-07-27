@@ -39,6 +39,7 @@
 
 body {
   background-color: rgb(247,247,247);
+  font-family: 'Times New Roman', Times, serif;
 }
 
 .navBar {
@@ -63,15 +64,15 @@ body {
 .navDiv1, .navDiv2, .navDiv3 {
   align-items: center;
   background-color: rgb(247,247,247);
+  display: flex;
 }
 
 .navDiv1{
   display: flex;
   margin-left: 20px;
-}
-
-.navDiv2{
-  display: flex;
+  margin-top: auto;
+  margin-bottom: auto;
+  height: 40px;
 }
 
 .navDiv3{
@@ -79,6 +80,13 @@ body {
   flex-direction: column;
   margin-right: 20px;
   justify-content: center;
+  height: 60px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.navDiv1:hover, .navDiv3:hover {
+  background-color: gray;
 }
 
 .navRightSmallDiv p {
@@ -97,28 +105,25 @@ body {
   right: 0px;
 }
 
-.rightBurgerBar li {
+.rightBurgerBar li, .leftBurgerBar li {
   list-style-type: none;
   text-decoration: none;
-  line-height: 40px;
+  line-height: 50px;
   border: 1px solid black;
-  background-color: rgb(247,247,247);
+  background-color: rgb(247,247,247, .8);
   width: 175px;
+  color: black;
+  font-weight: 600;
+}
+
+.rightBurgerBar li:hover, .leftBurgerBar li:hover {
+  background-color: rgb(116,178,103, .8);
 }
 
 .leftBurgerBar {
   position: absolute;
   top: 65px;
   left: -40px;
-}
-
-.leftBurgerBar li {
-  list-style-type: none;
-  text-decoration: none;
-  line-height: 40px;
-  border: 1px solid black;
-  background-color: rgb(247,247,247);
-  width: 175px;
 }
 
 .logo {
