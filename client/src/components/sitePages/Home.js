@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useEffect} from "react";
 import * as am4core from "./../../../node_modules/@amcharts/amcharts4/core";
 import * as am4maps from "./../../../node_modules/@amcharts/amcharts4/maps";
 import am4geodata_worldHigh from "./../../../node_modules/@amcharts/amcharts4-geodata/worldHigh";

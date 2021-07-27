@@ -2,11 +2,14 @@ import React from "react"
 
 export default function NavBar(props) {
 
-    /*if(props.loggedInUser.username){
-        const capitalizedName = {...props.loggedInUser.username}};
-        capitalizedName[0].toUpperCase();
-        console.log(capitalizedName);
-    }*/
+    let displayName = "";
+
+    if(props.loggedInUser){
+        for(let i=0; i<props.loggedInUser.username.length; i++){
+            if(i===0) displayName += props.loggedInUser.username[i].toUpperCase();
+            else {displayName += props.loggedInUser.username[i]}
+        }
+    }
 
     return (
 
@@ -22,7 +25,7 @@ export default function NavBar(props) {
             <div className= "navDiv3">
                 <img className = "navImg2" src="./userPhoto.png" alt="user"/>
                 <div className="navRightSmallDiv">
-                    {props.loggedInUser && <p className= "navPar">{props.loggedInUser.username}</p>}
+                    {props.loggedInUser && <p className= "navPar">{displayName}</p>}
                 </div>
                 
             </div>
