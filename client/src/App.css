@@ -132,3 +132,15 @@ body {
   height: 60px;
   text-align: center;
 }
+
+.blackButton {
+  color: black;
+  border: 1px solid black;
+  display: inline;
+}
+
+.blueButton {
+  color: blue;
+  border: 2px solid blue;
+  display: none;
+}
