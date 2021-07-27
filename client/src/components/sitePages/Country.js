@@ -1,22 +1,31 @@
 import React, {useState, useEffect} from "react";
-import {apiCall} from "./../../service/api-service"
+import axios from 'axios';
+const apiKey = process.env.APIKEY || "zIAVHGhXDlbB9bHGAkgmKitNUXY7VAn7";
 
 
 export default function Country(props) {
 
+    const [countryArr, updateCountryArr] = useState([])
+
     const countryName = props.match.params.name;
     const country = countryName.toLowerCase();
 
-    console.log("state: ", props.articlesArr)
-
-    //HOW DO I GET THE RETURN TO RENDER AFTER I RECEIVE THE RESULTS OF AN API CALL? HERE I HAVE CALLED THE API FROM THE PREVIOUS PAGE, RENDERING THIS PAGE WITHIN THE .THEN, BUT STILL NOT DISPLAYING RESULTS EVEN THOUGH CONSOLE LOG SHOWS RESULTS COMING IN. WHAT DO I DO?
+    useEffect(() => {
+        axios.get(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${country}&api-key=${apiKey}`)
+        .then((results) => {
+            updateCountryArr(results.data.response.docs)
+            console.log("result: ", results.data.response.docs[0].multimedia[0])
+        })
+        .catch(err=>console.log(err))
+    }, [countryName])
+    
         return (
             <div>
-                {props.articlesArr && props.articlesArr.map( article => {
-                    <div>
+                {countryArr && countryArr.map( article => {
+                    return <div>
                         <a href={`${article.web_url}`}>
                             <h1>{article.headline.main}</h1>
-                            <img src={article.multimedia[0]} alt="nothing" />
+                            {article.multimedia[0] && <img src={`https://static01.nyt.com/${article.multimedia[0].url}`} alt="nothing" />}
                             <p>{article.abstract}</p>
                             <div>
                                 <p>Category: {article.section_name}</p>
@@ -27,5 +36,4 @@ export default function Country(props) {
                 })}
             </div>
         )
-    
 }

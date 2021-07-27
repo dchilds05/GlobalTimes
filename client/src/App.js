@@ -12,8 +12,6 @@ function App() {
 
   const initialLoginState = null;
   const [loggedInUser, setLoggedInUser] = useState(initialLoginState)
-  const [articlesArr, updateArticlesArr] = useState([])
-
 
   useEffect(() => {
     auth.isLoggedIn()
@@ -29,8 +27,8 @@ function App() {
         <NavBar loggedInUser={loggedInUser}/>
         <Switch>
           <Route exact path = "/" render={props => <Login {...props} setLoggedInUser={setLoggedInUser}/>}/>
-          <Route exact path = "/home" render={props => <Home {...props} updateArticlesArr={updateArticlesArr}/>}/>
-          <Route exact path = "/country/:name" render={props => <Country {...props} articlesArr={articlesArr}/>}/>
+          <Route exact path = "/home" render={props => <Home {...props}/>}/>
+          <Route exact path = "/country/:name" render={props => <Country {...props}/>}/>
         </Switch>
       </BrowserRouter>
     </div>

@@ -2,10 +2,6 @@ import React, {useState, useEffect} from "react";
 import * as am4core from "./../../../node_modules/@amcharts/amcharts4/core";
 import * as am4maps from "./../../../node_modules/@amcharts/amcharts4/maps";
 import am4geodata_worldHigh from "./../../../node_modules/@amcharts/amcharts4-geodata/worldHigh";
-const axios = require('axios');
-const apiKey = process.env.APIKEY || "zIAVHGhXDlbB9bHGAkgmKitNUXY7VAn7";
-
-
 
 
 export default function Home(props) {
@@ -35,13 +31,9 @@ export default function Home(props) {
 
             ev.target.series.chart.zoomToMapObject(ev.target);
 
-            let countryName = ev.target.dataItem.dataContext.name.toLowerCase()
-            
-            axios.get(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${countryName}&api-key=${apiKey}`)
-            .then((results) => {
-                props.updateArticlesArr(results.data.response.docs)
+            setTimeout(() => {
                 props.history.push(`/country/${ev.target.dataItem.dataContext.name}`);
-            })
+            }, 1000)
           });
 
         polygonTemplate.tooltipText = "{name}";
