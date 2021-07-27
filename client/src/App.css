@@ -76,8 +76,9 @@
 }
 
 #chartDiv {
-  width: 100%;
+  width: 97%;
   height: 70vh;
+  margin-left: 10px;
 }
 
 .rightBurgerBar {

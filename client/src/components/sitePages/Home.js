@@ -73,8 +73,9 @@ export default function Home(props) {
 
     return (
         <div>
-            <h1>Home Page</h1>
+            <h1>Search news from around the world!</h1>
             <div id="chartDiv"></div>
+            <h2>Click a country to browse the New York Times database for recent articles from your country of choice</h2>
         </div>
     )
 }
