@@ -54,7 +54,7 @@ export default function NavBar(props) {
             </div>
 
             <div className= "navDiv2">
-                <h1>Global Times</h1>
+                <img className="logo" src="./logo.png" alt="logo" />
             </div>
            
             <div className= "navDiv3">
