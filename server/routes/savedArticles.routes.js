@@ -5,41 +5,34 @@ const User = require('../models/User.model');
 
 //ADD SAVED ARTICLES TO MY USER OBJECT
 router.put("/", (req, res) => {
-    const article = req.body
+    const {newArticleId, web_url} = req.body
     console.log(req.session)
  
     const user = req.session.currentUser
 
     User.findByIdAndUpdate((user._id), {
-        $push: {savedArticles: article.web_url}
+        $addToSet: {"savedArticles": web_url}
     }, {new: true})
     .then((user) => {
-        console.log(`${user} was updated with article number ${article.web_url}`)
+        console.log(`${user} was updated with article id ${newArticleId}`)
         res.json(user)
     })
     .catch((err) => res.json(err))
 })
 
 //DELETE ARTICLES FROM MY "SAVED ARTICLES"
-router.put("/:web_url", (req, res) => {
-    const {web_url} = req.params
+router.put("/removeFavorite", (req, res) => {
+    const {web_url} = req.body
     const user = req.session.currentUser
+
+    console.log("url: ", web_url, "user: ", user)
     
-    User.findById(user._id)
-    .then((foundUser) => {
-        let array = foundUser.savedArticles;
-        for(let i= 0; i<array.length; i++){
-            if(array[i] === web_url) {
-                array.splice(i, 1);
-            }
-        }
-        return(array)
-    })
-    .then((array) => {
-        User.findByIdAndUpdate(user._id, {savedArticles: array}, {new: true})
-        .then((newUser) => {
-            res.json(newUser)
-        })
+    User.findByIdAndUpdate((user._id), {
+        $pull: {"savedArticles": web_url}
+    }, {new: true})
+    .then((user) => {
+        console.log(`${user} pulled article id ${web_url}`)
+        res.json(user)
     })
     .catch((err) => res.json(err))
 })
