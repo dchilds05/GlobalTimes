@@ -1,16 +1,20 @@
 export default function photoSlideshow() {
 
-    var slides = document.getElementsByClassName("loginLeftDiv1");
+    let counter = 2;
 
-    for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
-    }
+    var currentPhoto = document.getElementsByClassName("loginLeftDiv1");
 
-    if(frameId % 300 === 0) slideIndex++;
-    if (slideIndex > slides.length) {slideIndex = 1}
+    setInterval(() =>{
+        if(counter === 1) {
+            currentPhoto.classList.remove(`loginLeftDiv8`)
+        } else {
+        currentPhoto.classList.remove(`loginLeftDiv${counter-1}`)
+        }
 
-    slides[slideIndex-1].style.display = "block";
-    
-    frameId = requestAnimationFrame(showSlides);
+        currentPhoto.classList.add(`loginLeftDiv${counter}`)
+
+        if (counter === 8) counter = 1
+        else {counter++}
+    }, 2000)
   }
   
