@@ -1,46 +1,12 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 body {
   background-color: rgb(247,247,247);
   font-family: 'Times New Roman', Times, serif;
+  text-align: center;
 }
+
+
+/* NAVBAR */
+
 
 .navBar {
   border-bottom: 1px solid black;
@@ -54,12 +20,10 @@ body {
   height: 30px;
 }
 
-
 .navImg2{
   height: 35px;
   text-align: center;
 }
-
 
 .navDiv1, .navDiv2, .navDiv3 {
   align-items: center;
@@ -100,6 +64,10 @@ body {
   margin-left: 10px;
 }
 
+
+/* BURGERBAR */
+
+
 .rightBurgerBar {
   position: absolute;
   top: 65px;
@@ -111,14 +79,14 @@ body {
   text-decoration: none;
   line-height: 50px;
   border: 1px solid black;
-  background-color: rgb(247,247,247, .8);
+  background-color: rgb(247,247,247);
   width: 175px;
   color: black;
   font-weight: 600;
 }
 
 .rightBurgerBar li:hover, .leftBurgerBar li:hover {
-  background-color: rgb(116,178,103, .8);
+  background-color: rgb(116,178,103);
   cursor: pointer;
 }
 
@@ -133,6 +101,10 @@ body {
   text-align: center;
 }
 
+
+/* BUTTONS */
+
+
 .blackButton {
   color: black;
   border: 1px solid black;
@@ -143,4 +115,16 @@ body {
   color: blue;
   border: 2px solid blue;
   display: none;
+}
+
+/* COUNTRY PAGE */
+
+.countryMamaDiv {
+  display:flex;
+  flex-direction: column;
+}
+
+.articleDiv{
+  border: 1px gray solid;
+  margin: 10px;
 }

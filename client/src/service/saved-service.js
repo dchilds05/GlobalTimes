@@ -14,7 +14,7 @@ export function saveArticle(article){
 
 export function deleteArticle(article){
     toggleButtons();
-    return savedService.put(`/:${article.web_url}`)
+    return savedService.put(`/${article.web_url}`)
     .then(res => res.data)
     .catch(err=>console.log(err))
 }
