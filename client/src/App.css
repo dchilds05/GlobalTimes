@@ -4,7 +4,7 @@ body {
   text-align: center;
 }
 
-/* LOGIN PAGE */
+/* LOGIN PAGE && SIGNUP PAGE && EDIT USER PAGE */
 .loginMamaDiv{
   display:flex;
   display: row;
@@ -67,7 +67,18 @@ body {
   font-size: 20px;
 }
 
+#editUserLeftDiv{
+  width: 50%;
+  background-image: url("./sliderPhotos/newspaper.jpeg");
+  background-size: fill;
+  background-repeat: no-repeat;
+  background-position: center;
+}
 
+#deleteButton:hover{
+  background-color: pink;
+  cursor: pointer;
+}
 
 
 /* NAVBAR */
@@ -277,8 +288,6 @@ body {
 .articlePubDate{
   width: 60%;
 }
-
-
 
 
 

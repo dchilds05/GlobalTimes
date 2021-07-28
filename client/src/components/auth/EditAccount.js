@@ -38,30 +38,37 @@ function EditUser(props){
       }
 
     return(
-        <div>
-        <form onSubmit={handleFormSubmit}>
-          <label>
-          Username:
-            <input type="text" name="username" placeholder={props.loggedInUser.username} value={formState.username} onChange={handleChange} required/>
-          </label><br></br>
+      <div>
+            <div className="loginMamaDiv">
+                <div id = "editUserLeftDiv"></div>
+                <div className = "loginRightDiv">
+                    <div className = "loginMasterDiv">
+                        <h1 className="loginHead">Edit User</h1>
+                        <form className="loginForm" onSubmit={handleFormSubmit}>
+                            <label>
+                                <input class = "indexInput" placeholder = {props.loggedInUser.username} type="text" name="username" value={formState.username} onChange={handleChange} required/>
+                            </label><br></br><br></br>
+                    
+                            <label>
+                                <input class = "indexInput" placeholder = "****" type="password" name="password" value={formState.password} onChange={handleChange} required/>
+                            </label><br></br><br></br>
 
-        <label>
-          Password:
-            <input type="password" name="password" placeholder="****" value={formState.password} onChange={handleChange} required/>
-        </label><br></br>
-          
-        <label>
-          Country of residence:
-            <input type="text" name="country" placeholder={props.loggedInUser.country} value={formState.passwcountryord} onChange={handleChange} required/>
-          </label><br></br>
-   
-          <button type="submit"> Update User </button>
-        </form><br></br>
+                            <label>
+                                <input class = "indexInput" placeholder = {props.loggedInUser.country} type="text" name="country" value={formState.country} onChange={handleChange} required/>
+                            </label><br></br><br></br>
+                    
+                            <button class = "loginButton" type="submit"> Update User </button>
+                        </form><br></br>
 
-        <button onClick={() => deleteFn()}> Delete Account </button>
-   
-   
-      </div>
+                        <hr style = {{width: "30%"}}></hr>
+                        <p style={{color: "red"}} className = "loginPar">Delete Account</p>
+                        <div className = "loginFormDiv2" style={{border: "none", background: "none"}}>
+                            <button style={{color: "red", border: "1px solid red"}} id= "deleteButton" className="signupButton" onClick={() => deleteFn()}> Delete Account </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     )
 }
 
