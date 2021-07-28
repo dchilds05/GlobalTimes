@@ -31,30 +31,31 @@ export default function Login (props) {
 
     return (
         <div>
-            <h1>
-               Already have an account?
-            </h1>
+            <div className="loginMamaDiv">
+                <div className = "loginLeftDiv1"></div>
+                <div className = "loginRightDiv">
+                    <div className = "loginMasterDiv">
+                        <h1 className="loginHead">Already have an<br></br> account?</h1>
+                        <form className="loginForm" onSubmit={handleFormSubmit}>
+                            <label>
+                                <input class = "indexInput" placeholder = "Username" type="text" name="username" value={formState.username} onChange={handleChange} />
+                            </label><br></br><br></br>
+                    
+                            <label>
+                                <input class = "indexInput" placeholder = "Password" type="password" name="password" value={formState.password} onChange={handleChange} />
+                            </label><br></br><br></br>
+                    
+                            <button class = "loginButton" type="submit"> Login </button>
+                        </form><br></br>
 
-            <p>Log in</p>
-
-            <form onSubmit={handleFormSubmit}>
-                <label>
-                    Username:
-                    <input class = "indexInput" type="text" name="username" value={formState.username} onChange={handleChange} />
-                </label><br></br>
-        
-                <label>
-                    Password:
-                    <input class = "indexInput" type="password" name="password" value={formState.password} onChange={handleChange} />
-                </label><br></br>
-        
-                <button class = "indexInput" id = "loginButton" type="submit"> Login </button>
-            </form>
- 
-            <p>
-                Don't have account?
-                <Link to={'/signup'}> Signup</Link>
-            </p>
+                        <hr style = {{width: "30%"}}></hr>
+                        <p className = "loginPar">Don't have an account yet?</p>
+                        <div className = "loginFormDiv2">
+                            <Link className = "signupButton" to={'/signup'} style={{ textDecoration: 'none', color: "black" }}> Signup</Link>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }
