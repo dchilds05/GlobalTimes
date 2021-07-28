@@ -14,8 +14,8 @@ export function saveArticle(article){
 }
 
 export function deleteArticle(web_url){
+    console.log("delete article clicked")
     toggleButtons();
-    console.log("front end article.web_url: ", web_url)
     return savedService.put(`/removeFavorite`, {web_url})
     .then(res => res.data)
     .catch(err=>console.log(err))

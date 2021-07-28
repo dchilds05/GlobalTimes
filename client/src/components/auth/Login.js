@@ -40,15 +40,15 @@ export default function Login (props) {
             <form onSubmit={handleFormSubmit}>
                 <label>
                     Username:
-                    <input type="text" name="username" value={formState.username} onChange={handleChange} />
+                    <input class = "indexInput" type="text" name="username" value={formState.username} onChange={handleChange} />
                 </label><br></br>
         
                 <label>
                     Password:
-                    <input type="password" name="password" value={formState.password} onChange={handleChange} />
+                    <input class = "indexInput" type="password" name="password" value={formState.password} onChange={handleChange} />
                 </label><br></br>
         
-                <button type="submit"> Login </button>
+                <button class = "indexInput" id = "loginButton" type="submit"> Login </button>
             </form>
  
             <p>

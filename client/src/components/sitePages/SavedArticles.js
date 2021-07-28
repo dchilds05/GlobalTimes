@@ -8,28 +8,25 @@ export default function SavedArticles(props) {
 
     let savedArticles = props.loggedInUser.savedArticles
 
-    const[singleArticleArr, setSingleArticleArr] = useState([])
+    const [articlesList, setArticlesList] = useState([])
 
+    const testUrl = "https://www.nytimes.com/2021/07/24/sports/olympics/tennis-ashleigh-barty-eliminated.html"
 
-    savedArticles.map((url) => {
-        console.log("url: ", url)
-
-        axios.get(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${url}&api-key=${apiKey}`)
-        .then((result) => {
-            setSingleArticleArr(result.data.response.docs)
-        })
-        .then(() => {
-            return (
-                <div className="countryMamaDiv">
-                    <div className="countryChildDivLeft">
-                        <h1>My Saved Events</h1>
-                        <div className="countryChildDivLeft">
-                            {singleArticleArr && <PrintResults array={singleArticleArr}/>}
-                        </div>
-                    </div>
-                </div>
-            )
+    useEffect(() => {
+        axios.get(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${testUrl}&api-key=${apiKey}`)
+        .then((results) => {
+            setArticlesList(results.data.response.docs)
         })
         .catch(err=>console.log(err))
-    })
+    }, [])
+
+        return (
+        <div>
+            <h1>My Saved Articles</h1>
+            <div>
+                {articlesList && <PrintResults array={articlesList}/>}
+            </div>
+        </div>
+        )
+
 }

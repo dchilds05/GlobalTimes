@@ -5,16 +5,16 @@ const User = require('../models/User.model');
 
 //ADD SAVED ARTICLES TO MY USER OBJECT
 router.put("/", (req, res) => {
-    const {newArticleId, web_url} = req.body
-    console.log(req.session)
- 
+    const {abstract, headline, multimedia, pub_date, section_name, web_url} = req.body
     const user = req.session.currentUser
 
+    console.log("in router, headline: ", headline.main)
+
     User.findByIdAndUpdate((user._id), {
-        $addToSet: {"savedArticles": web_url}
+        $addToSet: {"savedArticles": {abstract: abstract, headline: headline, multimedia: multimedia, pub_date: pub_date, section_name: section_name, web_url: web_url}}
     }, {new: true})
     .then((user) => {
-        console.log(`${user} was updated with article id ${newArticleId}`)
+        console.log(`${user} was updated with article url ${web_url}`)
         res.json(user)
     })
     .catch((err) => res.json(err))

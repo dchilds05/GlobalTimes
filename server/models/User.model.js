@@ -15,7 +15,7 @@ const userSchema = new Schema({
         required: true
     },
     savedArticles: {
-        type: Array,
+        type: [{type: Schema.Types.ObjectId, ref: 'SavedArticle', default: []}]
     }
 })
 
