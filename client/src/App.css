@@ -54,6 +54,10 @@ body {
   cursor: pointer;
 }
 
+.navDiv2:hover{
+  cursor: pointer;
+}
+
 .navRightSmallDiv p {
   margin: auto;
 }

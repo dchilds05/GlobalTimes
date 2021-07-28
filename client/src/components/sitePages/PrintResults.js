@@ -2,8 +2,6 @@ import convertString from "../../middleware/convertString"
 import convertId from "../../middleware/convertId"
 import {saveArticle, deleteArticle} from "../../service/saved-service"
 
-
-
 export default function PrintResults(props){
     
  

@@ -8,12 +8,12 @@ import EditUser from "./components/auth/EditAccount"
 import NavBar from "./components/navbar/NavBar"
 import Home from "./components/sitePages/Home"
 import Country from "./components/sitePages/Country"
+import SavedArticles from "./components/sitePages/SavedArticles"
 
 
 function App() {
 
   const [loggedInUser, setLoggedInUser] = useState(null)
-  const [atricleId, setArticlId] = useState("")
 
   useEffect(() => {
     auth.isLoggedIn()
@@ -41,8 +41,11 @@ function App() {
             loggedInUser ? <EditUser {...props} loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser}/> : <Redirect to="/"/>
             )}/>
           <Route exact path = "/country/:name" render={props => (
-            loggedInUser ? <Country {...props} loggedInUser={loggedInUser} atricleId={atricleId} setArticlId={setArticlId}/> : <Redirect to="/"/>
+            loggedInUser ? <Country {...props} loggedInUser={loggedInUser}/> : <Redirect to="/"/>
             )}/>
+          <Route exact path = "/savedArticles" render={props => (
+            loggedInUser ? <SavedArticles {...props} loggedInUser={loggedInUser}/> : <Redirect to="/"/>
+          )}/>
         </Switch>
       </BrowserRouter>
     </div>

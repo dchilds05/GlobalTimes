@@ -1,6 +1,4 @@
 import React, {useState, useEffect} from "react";
-import convertString from "./../../middleware/convertString"
-import {saveArticle, deleteArticle} from "./../../service/saved-service"
 import PrintResults from "./PrintResults"
 import axios from 'axios';
 const apiKey = process.env.APIKEY || "zIAVHGhXDlbB9bHGAkgmKitNUXY7VAn7";
@@ -33,10 +31,10 @@ export default function Country(props) {
         return (
             <div className="countryMamaDiv">
                 <div className="countryChildDivLeft">
-                    {countryArr && <PrintResults array={countryArr} atricleId={props.atricleId} setArticlId={props.setArticlId}/>}
+                    {countryArr && <PrintResults array={countryArr}/>}
                 </div>
                 <div className="countryChildDivRight">
-                    {countryArr2 && <PrintResults array={countryArr2} atricleId={props.atricleId} setArticlId={props.setArticlId}/>}
+                    {countryArr2 && <PrintResults array={countryArr2}/>}
                 </div>
             </div>
         )
