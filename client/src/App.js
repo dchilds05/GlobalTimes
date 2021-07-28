@@ -13,6 +13,7 @@ import Country from "./components/sitePages/Country"
 function App() {
 
   const [loggedInUser, setLoggedInUser] = useState(null)
+  const [atricleId, setArticlId] = useState("")
 
   useEffect(() => {
     auth.isLoggedIn()
@@ -40,7 +41,7 @@ function App() {
             loggedInUser ? <EditUser {...props} loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser}/> : <Redirect to="/"/>
             )}/>
           <Route exact path = "/country/:name" render={props => (
-            loggedInUser ? <Country {...props} loggedInUser={loggedInUser}/> : <Redirect to="/"/>
+            loggedInUser ? <Country {...props} loggedInUser={loggedInUser} atricleId={atricleId} setArticlId={setArticlId}/> : <Redirect to="/"/>
             )}/>
         </Switch>
       </BrowserRouter>

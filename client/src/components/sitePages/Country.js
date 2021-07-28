@@ -33,10 +33,10 @@ export default function Country(props) {
         return (
             <div className="countryMamaDiv">
                 <div className="countryChildDivLeft">
-                    {countryArr && <PrintResults array={countryArr}/>}
+                    {countryArr && <PrintResults array={countryArr} atricleId={props.atricleId} setArticlId={props.setArticlId}/>}
                 </div>
                 <div className="countryChildDivRight">
-                    {countryArr2 && <PrintResults array={countryArr2}/>}
+                    {countryArr2 && <PrintResults array={countryArr2} atricleId={props.atricleId} setArticlId={props.setArticlId}/>}
                 </div>
             </div>
         )

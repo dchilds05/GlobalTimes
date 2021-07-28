@@ -107,14 +107,29 @@ body {
 
 .blackButton {
   color: black;
-  border: 1px solid black;
+  border: 2px solid black;
+  font-weight: 600;
   display: inline;
+  height: 40px;
+  width: 50%;
+  border-radius: 50px;
+  margin-bottom: 10px;
 }
 
 .blueButton {
   color: blue;
   border: 2px solid blue;
-  display: inline;
+  font-weight: 600;
+  display: none;
+  height: 40px;
+  width: 50%;
+  border-radius: 50px;
+  margin-bottom: 10px;
+}
+
+.blackButton:hover, .blueButton:hover {
+  background-color: gray;
+  cursor: pointer;
 }
 
 /* COUNTRY PAGE */
@@ -129,16 +144,67 @@ body {
   margin: 15px;
 }
 
+@media (min-width: 640px){
+  .countryMamaDiv {
+    display:flex;
+    flex-direction: row;
+  }
+  .articleDiv{
+    border: 1px gray solid;
+    margin: 20px 0;
+  }
+  .countryChildDivLeft{
+    margin-left: 20px;
+    margin-right: 10px;
+    width: 50%;
+  }
+  .countryChildDivRight{
+    margin-right: 20px;
+    margin-left: 15px;
+    width: 50%;
+  }
+}
+
+
+
 .articleHead {
-  margin: 10px 0;
+  margin: 20px;
 }
 
 .articleImage {
   width: 100%;
-  margin: 0;
+  margin: 0 0px;
   padding: 0;
 }
 
+.articleAbstractHead {
+  font-size: 20px;
+  margin: 5px 0;
+}
+
 .articleAbstract {
-  border-top: 1px solid gray;
+  margin: 0 20px;
+  text-align: left;
+}
+
+.articleFooter {
+  display: flex;
+  height: 20px;
+  margin: 20px;
+}
+
+.articleCategory, .articlePubDate {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top:auto;
+  margin-bottom:auto;
+}
+
+.articleCategory{
+  width: 40%;
+}
+
+.articlePubDate{
+  width: 60%;
 }
