@@ -2,19 +2,15 @@ export default function photoSlideshow() {
 
     let counter = 2;
 
-    var currentPhoto = document.getElementsByClassName("loginLeftDiv1");
+    var currentPhoto = document.getElementById("loginLeftDiv1");
+    console.log("currentPhoto", currentPhoto)
 
     setInterval(() =>{
-        if(counter === 1) {
-            currentPhoto.classList.remove(`loginLeftDiv8`)
-        } else {
-        currentPhoto.classList.remove(`loginLeftDiv${counter-1}`)
-        }
-
-        currentPhoto.classList.add(`loginLeftDiv${counter}`)
-
-        if (counter === 8) counter = 1
-        else {counter++}
-    }, 2000)
+        currentPhoto.id = `loginLeftDiv${counter}`
+        if (counter === 8) counter = 1;
+        else counter++
+    }, 3000)
   }
+
+
   

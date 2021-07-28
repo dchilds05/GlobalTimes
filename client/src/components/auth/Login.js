@@ -1,6 +1,7 @@
-import React, {useState} from "react"
+import React, {useState, useEffect} from "react"
 import {Link} from 'react-router-dom'
 import * as auth from "./../../service/auth-service"
+import photoSlideshow from "./../../middleware/photoSlideshow"
 
 export default function Login (props) {
 
@@ -29,10 +30,14 @@ export default function Login (props) {
           .catch(error => console.log(error));
       };
 
+    useEffect(() => {
+        photoSlideshow();
+      }, [])
+
     return (
         <div>
             <div className="loginMamaDiv">
-                <div className = "loginLeftDiv1"></div>
+                <div id = "loginLeftDiv1"></div>
                 <div className = "loginRightDiv">
                     <div className = "loginMasterDiv">
                         <h1 className="loginHead">Already have an<br></br> account?</h1>

@@ -289,7 +289,7 @@ body {
 
 /* PHOTO SLIDER */
 
-.loginLeftDiv1{
+#loginLeftDiv1{
   width: 50%;
   background-image: url("./sliderPhotos/earthquake.jpeg");
   background-size: fill;
@@ -297,7 +297,7 @@ body {
   background-position: center;
 }
 
-.loginLeftDiv2{
+#loginLeftDiv2{
   width: 50%;
   background-image: url("./sliderPhotos/catalonia.jpeg");
   background-size: fill;
@@ -305,7 +305,7 @@ body {
   background-position: center;
 }
 
-.loginLeftDiv3{
+#loginLeftDiv3{
   width: 50%;
   background-image: url("./sliderPhotos/korea.jpeg");
   background-size: fill;
@@ -313,7 +313,7 @@ body {
   background-position: center;
 }
 
-.loginLeftDiv4{
+#loginLeftDiv4{
   width: 50%;
   background-image: url("./sliderPhotos/fire.jpeg");
   background-size: fill;
@@ -321,7 +321,7 @@ body {
   background-position: center;
 }
 
-.loginLeftDiv5{
+#loginLeftDiv5{
   width: 50%;
   background-image: url("./sliderPhotos/indigenous.jpg");
   background-size: fill;
@@ -329,7 +329,7 @@ body {
   background-position: center;
 }
 
-.loginLeftDiv6{
+#loginLeftDiv6{
   width: 50%;
   background-image: url("./sliderPhotos/palestine.jpeg");
   background-size: fill;
@@ -337,7 +337,7 @@ body {
   background-position: center;
 }
 
-.loginLeftDiv7{
+#loginLeftDiv7{
   width: 50%;
   background-image: url("./sliderPhotos/peru.jpeg");
   background-size: fill;
@@ -345,7 +345,7 @@ body {
   background-position: center;
 }
 
-.loginLeftDiv8{
+#loginLeftDiv8{
   width: 50%;
   background-image: url("./sliderPhotos/protest.jpeg");
   background-size: fill;
