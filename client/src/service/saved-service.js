@@ -11,6 +11,7 @@ export function saveArticle(article, newWeb_url){
     toggleButtons(newWeb_url);
     return savedService.put('/', {abstract: article.abstract, headline: article.headline.main, multimedia: article.multimedia[0].url, pub_date: article.pub_date, section_name: article.section_name, web_url: article.web_url})
     .then(response => response.data)
+    .catch(err=>console.log(err))
 }
 
 export function deleteArticle(article, newWeb_url){
@@ -20,5 +21,6 @@ export function deleteArticle(article, newWeb_url){
     .then(res => res.data)
     .catch(err=>console.log(err))
 }
+
 
 

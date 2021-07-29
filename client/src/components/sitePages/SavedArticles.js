@@ -1,32 +1,58 @@
 import React, {useState, useEffect} from "react";
-import PrintResults from "./PrintResults"
-import axios from 'axios';
-const apiKey = process.env.APIKEY || "zIAVHGhXDlbB9bHGAkgmKitNUXY7VAn7";
+import axios from "axios"
+import convertString from "../../middleware/convertString"
+import {saveArticle, deleteArticle} from "../../service/saved-service"
 
 
-export default function SavedArticles(props) {
+export default function SavedArticles() {
 
-    let savedArticles = props.loggedInUser.savedArticles
+    const [poppedUser, setPoppedUser] = useState({})
 
-    const [articlesList, setArticlesList] = useState([])
+    const popService = axios.create({
+        baseURL: `${process.env.REACT_APP_API_URL}/savedArticles`,
+        withCredentials: true
+    })
 
-    const testUrl = "https://www.nytimes.com/2021/07/24/sports/olympics/tennis-ashleigh-barty-eliminated.html"
+    function popUser(){
+        return popService.get('/popUser')
+        .then(fullUser => {
+            setPoppedUser(fullUser.data)
+        })    
+        .catch(err=>console.log(err))
+    }
 
     useEffect(() => {
-        axios.get(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${testUrl}&api-key=${apiKey}`)
-        .then((results) => {
-            setArticlesList(results.data.response.docs)
-        })
-        .catch(err=>console.log(err))
+        popUser();   
     }, [])
 
-        return (
-        <div>
-            <h1>My Saved Articles</h1>
-            <div>
-                {articlesList && <PrintResults array={articlesList}/>}
-            </div>
-        </div>
-        )
+    const articlesArr = poppedUser.savedArticles
+
+    console.log("articlesArr", articlesArr)
+
+    return(
+
+        articlesArr && articlesArr.forEach((article) => {
+
+            let newDateArray = convertString(article.pub_date)
+            let newWeb_url = article.web_url.replace(/[ ,./:+=?;&-]/g,'');
+
+            return (
+                <div className="articleDiv" key={article._id}>
+                    <a href={`${article.web_url}`} style={{ textDecoration: 'none', color: "black" }}>
+                            {article.headline && <h1 className="articleHead">{article.headline}</h1>}
+                            {article.multimedia ? <img className="articleImage" src={`https://static01.nyt.com/${article.multimedia}`} alt="nothing" /> : <img className="articleImage" src = "/noPhoto.jpeg" alt="noImage"/>}
+                            <h2 className="articleAbstractHead">Abstract</h2>
+                            {article.abstract && <p className="articleAbstract">{article.abstract.substring(0, 250)}...</p>}
+                        <div className="articleFooter">
+                            {article.section_name && <p className="articleCategory">Category: {article.section_name}</p>}
+                            {article.pub_date && <p className="articlePubDate">Publication Date: {newDateArray}</p>}
+                        </div>
+                    </a>
+                    <button className = {`black${newWeb_url} blackButton`} onClick={() => saveArticle(article, newWeb_url)}>Save to favorites!</button>
+                    <button className = {`blue${newWeb_url} blueButton`} onClick={() => deleteArticle(article, newWeb_url)}>Saved!</button>
+                </div>
+                )
+        })
+    )
 
 }

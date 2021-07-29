@@ -53,4 +53,15 @@ router.put("/removeFavorite", (req, res) => {
     .catch((err) => res.json(err))
 })
 
+//FIND USER AND POPULATE
+router.get("/popUser", (req, res) => {
+    User.findById(req.session.currentUser._id)
+    .populate("savedArticles")
+    .then((poppedUser) => {
+        res.json(poppedUser)
+    })
+    .catch((err) => res.json(err))
+})
+
+
 module.exports = router;
