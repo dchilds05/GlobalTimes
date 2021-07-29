@@ -16,6 +16,7 @@ body {
 }
 
 .loginMasterDiv{
+  background-color: #d9d7dd;
   border: solid 1px gray;
   margin: 20px;
   border-radius: 15px;
