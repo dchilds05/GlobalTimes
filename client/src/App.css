@@ -139,10 +139,41 @@ body {
   margin: auto;
 }
 
+/* HOME PAGE  */
+
+.homeMamaDiv{
+  display: flex;
+  flex-flow: column-reverse;
+}
+
+.homeLeftDiv{
+  margin: 0 30px;
+}
+
+.scrollBar{
+  height: 100vh;
+  overflow: scroll;
+}
+
+.homeRightDiv{
+
+}
+
 #chartDiv {
   width: 97%;
   height: 70vh;
   margin-left: 10px;
+}
+
+h3 {
+  color: rgb(116,178,103);
+  font-weight: 600px;
+  font-size: 28px;
+  text-decoration: underline;
+}
+
+.homeH2{
+  margin: 20px 30px 0 30px;
 }
 
 
