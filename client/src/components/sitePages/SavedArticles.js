@@ -64,5 +64,6 @@ export default function SavedArticles() {
                     <button className = {`redButton`} onClick={() => removeArticleAndUpdateState(article)}>Remove</button>
                 </div>
                 )
-        })
+        }
+    )
 }

@@ -32,7 +32,7 @@ export default function Home(props) {
             ev.target.series.chart.zoomToMapObject(ev.target);
 
             setTimeout(() => {
-                props.history.push(`/country/${ev.target.dataItem.dataContext.name}`);
+                props.history.push(`/${ev.target.dataItem.dataContext.name}`);
             }, 750)
           });
 
@@ -70,7 +70,7 @@ export default function Home(props) {
     }, [])
 
     return (
-        <div>
+        <div className = "homeMamaDiv">
             <h1>Search news from around the world!</h1>
             <div id="chartDiv"></div>
             <h2>Browse the New York Times database for recent articles from your country of choice</h2>

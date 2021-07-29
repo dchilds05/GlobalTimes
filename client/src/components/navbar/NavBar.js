@@ -49,6 +49,11 @@ export default function NavBar(props) {
                 <ul className="leftBurgerBar" style={{display: "none"}}> 
                     <li onClick={() => popOutLeft()}><Link to="/home" style={{ textDecoration: 'none', color: "black" }}>Home</Link></li>
                     <li onClick={() => popOutLeft()}><Link to="/savedArticles" style={{ textDecoration: 'none', color: "black" }}>My Saved Articles</Link></li>
+                    <li onClick={() => popOutLeft()}><Link to="/Africa" style={{ textDecoration: 'none', color: "black" }}>Africa</Link></li>
+                    <li onClick={() => popOutLeft()}><Link to="/Asia" style={{ textDecoration: 'none', color: "black" }}>Asia</Link></li>
+                    <li onClick={() => popOutLeft()}><Link to="/Europe" style={{ textDecoration: 'none', color: "black" }}>Europe</Link></li>
+                    <li onClick={() => popOutLeft()}><Link to="/North%20America" style={{ textDecoration: 'none', color: "black" }}>North America</Link></li>
+                    <li onClick={() => popOutLeft()}><Link to="/South%20America" style={{ textDecoration: 'none', color: "black" }}>South America</Link></li>
                 </ul>
             </div>
 

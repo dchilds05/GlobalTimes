@@ -40,12 +40,12 @@ function App() {
           <Route exact path = "/editUser" render={props => (
             loggedInUser ? <EditUser {...props} loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser}/> : <Redirect to="/"/>
             )}/>
-          <Route exact path = "/country/:name" render={props => (
-            loggedInUser ? <Country {...props} loggedInUser={loggedInUser}/> : <Redirect to="/"/>
-            )}/>
           <Route exact path = "/savedArticles" render={props => (
-            loggedInUser ? <SavedArticles {...props} loggedInUser={loggedInUser}/> : <Redirect to="/"/>
+            loggedInUser ? <SavedArticles {...props}/> : <Redirect to="/"/>
           )}/>
+          <Route exact path = "/:name" render={props => (
+            loggedInUser ? <Country {...props}/> : <Redirect to="/"/>
+            )}/>
         </Switch>
       </BrowserRouter>
     </div>

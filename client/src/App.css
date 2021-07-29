@@ -175,6 +175,7 @@ body {
   position: absolute;
   top: 65px;
   left: -40px;
+  z-index: 3;
 }
 
 .logo {
@@ -248,25 +249,28 @@ body {
 }
 
 @media (min-width: 640px) and (max-width: 960px){
-  .countryMamaDiv {
-    display:flex;
-    flex-direction: row;
-  }
   .savedDiv{
     border: 1px gray solid;
     margin: 15px 100px;
   }
+}
+
+@media (min-width: 640px) {
+  .countryMamaDiv {
+    display:flex;
+    flex-direction: row;
+  }
   .articleDiv{
     border: 1px gray solid;
-    margin: 20px 0;
+    margin: 30px 0;
   }
   .countryChildDivLeft{
-    margin-left: 20px;
-    margin-right: 10px;
+    margin-left: 40px;
+    margin-right: 15px;
     width: 50%;
   }
   .countryChildDivRight{
-    margin-right: 20px;
+    margin-right: 40px;
     margin-left: 15px;
     width: 50%;
   }
