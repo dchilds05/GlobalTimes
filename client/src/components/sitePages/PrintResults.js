@@ -19,8 +19,8 @@ export default function PrintResults(props){
                         {article.pub_date && <p className="articlePubDate">Publication Date: {newDateArray}</p>}
                     </div>
                 </a>
-                <button className = "articleButton blackButton" onClick={() => saveArticle(article)}>Save to favorites!</button>
-                <button className = "articleButton blueButton" onClick={() => deleteArticle(article)}>Saved!</button>
+                <button className = {`black${article.web_url} blackButton`} onClick={() => saveArticle(article)}>Save to favorites!</button>
+                <button className = {`blue${article.web_url} blueButton`} onClick={() => deleteArticle(article)}>Saved!</button>
             </div>
      
         )

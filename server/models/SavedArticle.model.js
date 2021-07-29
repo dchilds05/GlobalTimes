@@ -1,5 +1,3 @@
-const SavedArticle = require('../models/SavedArticle.model');
-
 const {Schema, model} = require("mongoose");
 
 const articleSchema = new Schema({
@@ -8,11 +6,11 @@ const articleSchema = new Schema({
         required: true,
     },
     headline: {
-        type: Object, 
+        type: String, 
         required: true
     },
     multimedia: {
-        type: Array,
+        type: String,
         require: true
     },
     pub_date: {
