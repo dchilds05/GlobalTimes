@@ -13,7 +13,7 @@ export default function Country(props) {
     const country = countryName.toLowerCase();
 
     useEffect(() => {
-        axios.get(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${country}&page=1&sort=newest&api-key=${apiKey}`)
+        axios.get(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${country}&fq=glocations:(${country})&page=1&sort=newest&api-key=${apiKey}`)
         .then((results) => {
             updateCountryArr(results.data.response.docs)
         })
@@ -21,7 +21,7 @@ export default function Country(props) {
     }, [])
 
     useEffect(() => {
-        axios.get(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${country}&page=2&sort=newest&api-key=${apiKey}`)
+        axios.get(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${country}&fq=glocations:(${country})&page=2&sort=newest&api-key=${apiKey}`)
         .then((results) => {
             updateCountryArr2(results.data.response.docs)
         })
