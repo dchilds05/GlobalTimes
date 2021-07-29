@@ -6,7 +6,12 @@ import {saveArticle, deleteArticle} from "../../service/saved-service"
 
 export default function SavedArticles() {
 
-    const [poppedUser, setPoppedUser] = useState({})
+    const [poppedUser, setPoppedUser] = useState({
+        username: "",
+        password: "",
+        country: "",
+        savedArticles: [],
+    })
 
     const popService = axios.create({
         baseURL: `${process.env.REACT_APP_API_URL}/savedArticles`,
@@ -29,9 +34,7 @@ export default function SavedArticles() {
 
     console.log("articlesArr", articlesArr)
 
-    return(
-
-        articlesArr && articlesArr.forEach((article) => {
+    return articlesArr.map((article) => {
 
             let newDateArray = convertString(article.pub_date)
             let newWeb_url = article.web_url.replace(/[ ,./:+=?;&-]/g,'');
@@ -53,6 +56,4 @@ export default function SavedArticles() {
                 </div>
                 )
         })
-    )
-
 }
