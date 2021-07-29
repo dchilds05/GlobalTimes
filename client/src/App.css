@@ -235,11 +235,26 @@ body {
   border: 1px gray solid;
   margin: 15px;
 }
+.savedDiv{
+  border: 1px gray solid;
+  margin: 15px;
+}
 
-@media (min-width: 640px){
+@media (min-width: 960px){
+  .savedDiv{
+    border: 1px gray solid;
+    margin: 15px 300px;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 960px){
   .countryMamaDiv {
     display:flex;
     flex-direction: row;
+  }
+  .savedDiv{
+    border: 1px gray solid;
+    margin: 15px 100px;
   }
   .articleDiv{
     border: 1px gray solid;
@@ -256,8 +271,6 @@ body {
     width: 50%;
   }
 }
-
-
 
 .articleHead {
   margin: 20px;

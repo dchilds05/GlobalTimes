@@ -50,7 +50,7 @@ export default function SavedArticles() {
             let newDateArray = convertString(article.pub_date)
 
             return (
-                <div className="articleDiv" key={article._id}>
+                <div className="savedDiv" key={article._id}>
                     <a href={`${article.web_url}`} style={{ textDecoration: 'none', color: "black" }}>
                             {article.headline && <h1 className="articleHead">{article.headline}</h1>}
                             {article.multimedia ? <img className="articleImage" src={`https://static01.nyt.com/${article.multimedia}`} alt="nothing" /> : <img className="articleImage" src = "/noPhoto.jpeg" alt="noImage"/>}
