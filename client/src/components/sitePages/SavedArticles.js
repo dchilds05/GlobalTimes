@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from "react";
 import axios from "axios"
 import convertString from "../../middleware/convertString"
-import {saveArticle, deleteArticle} from "../../service/saved-service"
 
 
 export default function SavedArticles() {
@@ -30,14 +29,25 @@ export default function SavedArticles() {
         popUser();   
     }, [])
 
-    const articlesArr = poppedUser.savedArticles
+    const removeService = axios.create({
+        baseURL: `${process.env.REACT_APP_API_URL}/savedArticles`,
+        withCredentials: true
+    })
 
-    console.log("articlesArr", articlesArr)
+    function removeArticleAndUpdateState(article){
+        console.log("remove article clicked")
+        return removeService.put(`/removeFavorite`, {web_url: article.web_url})
+        .then(res => {
+            popUser()
+        })
+        .catch(err=>console.log(err))
+    }
+
+    const articlesArr = poppedUser.savedArticles
 
     return articlesArr.map((article) => {
 
             let newDateArray = convertString(article.pub_date)
-            let newWeb_url = article.web_url.replace(/[ ,./:+=?;&-]/g,'');
 
             return (
                 <div className="articleDiv" key={article._id}>
@@ -51,8 +61,7 @@ export default function SavedArticles() {
                             {article.pub_date && <p className="articlePubDate">Publication Date: {newDateArray}</p>}
                         </div>
                     </a>
-                    <button className = {`black${newWeb_url} blackButton`} onClick={() => saveArticle(article, newWeb_url)}>Save to favorites!</button>
-                    <button className = {`blue${newWeb_url} blueButton`} onClick={() => deleteArticle(article, newWeb_url)}>Saved!</button>
+                    <button className = {`redButton`} onClick={() => removeArticleAndUpdateState(article)}>Remove</button>
                 </div>
                 )
         })

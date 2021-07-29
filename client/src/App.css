@@ -208,7 +208,18 @@ body {
   margin-bottom: 10px;
 }
 
-.blackButton:hover, .blueButton:hover {
+.redButton {
+  color: red;
+  border: 1px solid red;
+  font-weight: 600;
+  display: inline;
+  height: 40px;
+  width: 50%;
+  border-radius: 50px;
+  margin-bottom: 10px;
+}
+
+.blackButton:hover, .blueButton:hover, .redButton:hover {
   background-color: gray;
   cursor: pointer;
 }
