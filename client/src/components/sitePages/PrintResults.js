@@ -6,6 +6,7 @@ export default function PrintResults(props){
     return props.array.map( article => {
         
         let newDateArray = convertString(article.pub_date)
+        let newWeb_url = article.web_url.replace(/[ ,./:+=?;&-]/g,'');
         
         return (
             <div className="articleDiv" key={article._id}>
@@ -19,8 +20,8 @@ export default function PrintResults(props){
                         {article.pub_date && <p className="articlePubDate">Publication Date: {newDateArray}</p>}
                     </div>
                 </a>
-                <button className = {`black${article.web_url} blackButton`} onClick={() => saveArticle(article)}>Save to favorites!</button>
-                <button className = {`blue${article.web_url} blueButton`} onClick={() => deleteArticle(article)}>Saved!</button>
+                <button className = {`black${newWeb_url} blackButton`} onClick={() => saveArticle(article, newWeb_url)}>Save to favorites!</button>
+                <button className = {`blue${newWeb_url} blueButton`} onClick={() => deleteArticle(article, newWeb_url)}>Saved!</button>
             </div>
      
         )

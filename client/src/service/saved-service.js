@@ -6,16 +6,16 @@ const savedService = axios.create({
     withCredentials: true
 })
 
-export function saveArticle(article){
+export function saveArticle(article, newWeb_url){
     console.log("save article clicked")
-    toggleButtons(article.web_url);
+    toggleButtons(newWeb_url);
     return savedService.put('/', {abstract: article.abstract, headline: article.headline.main, multimedia: article.multimedia[0].url, pub_date: article.pub_date, section_name: article.section_name, web_url: article.web_url})
     .then(response => response.data)
 }
 
-export function deleteArticle(article){
+export function deleteArticle(article, newWeb_url){
     console.log("delete article clicked")
-    toggleButtons(article.web_url);
+    toggleButtons(newWeb_url);
     return savedService.put(`/removeFavorite`, {web_url: article.web_url})
     .then(res => res.data)
     .catch(err=>console.log(err))
