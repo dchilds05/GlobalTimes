@@ -10,7 +10,7 @@ export default function PrintResults(props){
         
         return (
             <div className="articleDiv" key={article._id}>
-                <a href={`${article.web_url}`} style={{ textDecoration: 'none', color: "black" }}>
+                <a href={`${article.web_url}`} style={{ textDecoration: 'none', color: "black" }} rel="noreferrer" target="_blank">
                         {article.headline.main && <h1 className="articleHead">{article.headline.main}</h1>}
                         {article.multimedia[0] ? <img className="articleImage" src={`https://static01.nyt.com/${article.multimedia[0].url}`} alt="nothing" /> : <img className="articleImage" src = "/noPhoto.jpeg" alt="noImage"/>}
                         <h2 className="articleAbstractHead">Abstract</h2>
