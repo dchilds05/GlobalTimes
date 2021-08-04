@@ -17,6 +17,12 @@ body {
     flex-direction: column;
     height: 91vh;
   }
+
+  #editUserLeftDiv{
+    width: 0px;
+    height: 0px;
+    background-image: none;
+  }
 }
 
 .loginRightDiv{
@@ -79,10 +85,28 @@ body {
   font-size: 20px;
 }
 
+.editMamaDiv{
+  display:flex;
+  flex-direction: row;
+  height: 91vh;
+}
+
+@media (max-width: 640px) {
+  .editMamaDiv{
+    display:flex;
+    flex-direction: column;
+    height: 91vh;
+    background-image: url("./sliderPhotos/newspaper.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
+
 #editUserLeftDiv{
   width: 50%;
   background-image: url("./sliderPhotos/newspaper.jpeg");
-  background-size: fill;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
 }

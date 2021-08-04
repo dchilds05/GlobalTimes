@@ -39,7 +39,7 @@ function EditUser(props){
 
     return(
       <div>
-            <div className="loginMamaDiv">
+            <div className="editMamaDiv">
                 <div id = "editUserLeftDiv"></div>
                 <div className = "loginRightDiv">
                     <div className = "loginMasterDiv">
