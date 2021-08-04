@@ -47,13 +47,13 @@ export default function NavBar(props) {
             <div className= "navDiv1">
                 <img onClick={() => popOutLeft()} className = "navImg1" src="./hamburger.png" alt="hamburger"/>
                 <ul className="leftBurgerBar" style={{display: "none"}}> 
-                    <li onClick={() => popOutLeft()}><Link to="/home" style={{ textDecoration: 'none', color: "black" }}>Home</Link></li>
-                    <li onClick={() => popOutLeft()}><Link to="/savedArticles" style={{ textDecoration: 'none', color: "black" }}>My Saved Articles</Link></li>
-                    <li onClick={() => popOutLeft()}><Link to="/Africa" style={{ textDecoration: 'none', color: "black" }}>Africa</Link></li>
-                    <li onClick={() => popOutLeft()}><Link to="/Asia" style={{ textDecoration: 'none', color: "black" }}>Asia</Link></li>
-                    <li onClick={() => popOutLeft()}><Link to="/Europe" style={{ textDecoration: 'none', color: "black" }}>Europe</Link></li>
-                    <li onClick={() => popOutLeft()}><Link to="/North%20America" style={{ textDecoration: 'none', color: "black" }}>North America</Link></li>
-                    <li onClick={() => popOutLeft()}><Link to="/South%20America" style={{ textDecoration: 'none', color: "black" }}>South America</Link></li>
+                    <Link to="/home" style={{ textDecoration: 'none', color: "black" }}><li onClick={() => popOutLeft()}>Home</li></Link>
+                    <Link to="/savedArticles" style={{ textDecoration: 'none', color: "black" }}><li onClick={() => popOutLeft()}>My Saved Articles</li></Link>
+                    <Link to="/Africa" style={{ textDecoration: 'none', color: "black" }}><li onClick={() => popOutLeft()}>Africa</li></Link>
+                    <Link to="/Asia" style={{ textDecoration: 'none', color: "black" }}><li onClick={() => popOutLeft()}>Asia</li></Link>
+                    <Link to="/Europe" style={{ textDecoration: 'none', color: "black" }}><li onClick={() => popOutLeft()}>Europe</li></Link>
+                    <Link to="/North%20America" style={{ textDecoration: 'none', color: "black" }}><li onClick={() => popOutLeft()}>North America</li></Link>
+                    <Link to="/South%20America" style={{ textDecoration: 'none', color: "black" }}><li onClick={() => popOutLeft()}>South America</li></Link>
                 </ul>
             </div>
 
@@ -67,7 +67,7 @@ export default function NavBar(props) {
                     {props.loggedInUser && <p className= "navPar">{displayName}</p>}
                 </div>
                 <ul className="rightBurgerBar" style={{display: "none"}}> 
-                    <li onClick={() => popOutRight()}><Link to="/editUser" style={{ textDecoration: 'none', color: "black" }}>Edit Account Details</Link></li>
+                    <Link to="/editUser" style={{ textDecoration: 'none', color: "black" }}><li onClick={() => popOutRight()}>Edit Account Details</li></Link>
                     <li onClick={() => logOut()}>Logout</li>
                 </ul>
             </div>
