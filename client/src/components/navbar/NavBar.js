@@ -40,11 +40,31 @@ export default function NavBar(props) {
           }
     }
 
+    function displayLeft(){
+        var userBurger = document.querySelector(".leftBurgerBar");
+        userBurger.style.display = "block";
+    }
+
+    function UnDisplayLeft(){
+        var userBurger = document.querySelector(".leftBurgerBar");
+        userBurger.style.display = "none";
+    }
+
+    function displayRight(){
+        var userBurger = document.querySelector(".rightBurgerBar");
+        userBurger.style.display = "block";
+    }
+
+    function UnDisplayRight(){
+        var userBurger = document.querySelector(".rightBurgerBar");
+        userBurger.style.display = "none";
+    }
+
 
     return (
 
         <div className="navBar">
-            <div className= "navDiv1">
+            <div className= "navDiv1" onMouseOver= {() => displayLeft()} onMouseOut= {() => UnDisplayLeft()}>
                 <img onClick={() => popOutLeft()} className = "navImg1" src="./hamburger.png" alt="hamburger"/>
                 <ul className="leftBurgerBar" style={{display: "none"}}> 
                     <Link to="/home" style={{ textDecoration: 'none', color: "black" }}><li onClick={() => popOutLeft()}>Home</li></Link>
@@ -61,14 +81,14 @@ export default function NavBar(props) {
                 <Link to="/home"><img className="logo" src="./logo.png" alt="logo" /></Link>
             </div>
            
-            <div className= "navDiv3">
+            <div className= "navDiv3" onMouseOver= {() => displayRight()} onMouseOut= {() => UnDisplayRight()}>
                 <img onClick={() => popOutRight()} className = "navImg2" src="./userPhoto.png" alt="user"/>
-                <div className="navRightSmallDiv">
+                <div className="navRightSmallDiv" >
                     {props.loggedInUser && <p className= "navPar">{displayName}</p>}
                 </div>
                 <ul className="rightBurgerBar" style={{display: "none"}}> 
                     <Link to="/editUser" style={{ textDecoration: 'none', color: "black" }}><li onClick={() => popOutRight()}>Edit Account Details</li></Link>
-                    <li onClick={() => logOut()}>Logout</li>
+                    <li onClick={() => logOut()} >Logout</li>
                 </ul>
             </div>
         </div>

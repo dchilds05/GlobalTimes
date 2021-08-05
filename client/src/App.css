@@ -145,23 +145,25 @@ body {
 
 .navDiv1{
   display: flex;
-  margin-left: 20px;
+  padding-left: 20px;
   margin-top: auto;
   margin-bottom: auto;
-  height: 40px;
+  height: 80px;
+  width: 80px;
 }
 
 .navDiv3{
   display: flex;
   flex-direction: column;
-  margin-right: 20px;
+  padding-right: 20px;
   justify-content: center;
-  height: 60px;
+  height: 80px;
+  width: 80px;
   margin-top: auto;
   margin-bottom: auto;
 }
 
-.navDiv1:hover, .navDiv3:hover {
+.navImg1:hover, .navImg2:hover {
   background-color: gray;
   cursor: pointer;
 }
@@ -174,7 +176,48 @@ body {
   margin: auto;
 }
 
+
+/* BURGERBAR */
+
+
+.rightBurgerBar {
+  position: absolute;
+  top: 65px;
+  right: 0px;
+}
+
+.rightBurgerBar li, .leftBurgerBar li {
+  list-style-type: none;
+  text-decoration: none;
+  line-height: 50px;
+  border: 1px solid black;
+  background-color: rgb(247,247,247);
+  width: 175px;
+  color: black;
+  font-weight: 600;
+}
+
+.rightBurgerBar li:hover, .leftBurgerBar li:hover {
+  background-color: rgb(116,178,103);
+  cursor: pointer;
+}
+
+.leftBurgerBar {
+  position: absolute;
+  top: 65px;
+  left: -40px;
+  z-index: 3;
+}
+
+.logo {
+  height: 60px;
+  text-align: center;
+}
+
+
+
 /* HOME PAGE  */
+
 
 .homeMamaDiv{
   display: flex;
@@ -240,44 +283,6 @@ h3 {
     text-decoration: none;
     margin-top: 29px;
   }
-}
-
-
-/* BURGERBAR */
-
-
-.rightBurgerBar {
-  position: absolute;
-  top: 65px;
-  right: 0px;
-}
-
-.rightBurgerBar li, .leftBurgerBar li {
-  list-style-type: none;
-  text-decoration: none;
-  line-height: 50px;
-  border: 1px solid black;
-  background-color: rgb(247,247,247);
-  width: 175px;
-  color: black;
-  font-weight: 600;
-}
-
-.rightBurgerBar li:hover, .leftBurgerBar li:hover {
-  background-color: rgb(116,178,103);
-  cursor: pointer;
-}
-
-.leftBurgerBar {
-  position: absolute;
-  top: 65px;
-  left: -40px;
-  z-index: 3;
-}
-
-.logo {
-  height: 60px;
-  text-align: center;
 }
 
 
