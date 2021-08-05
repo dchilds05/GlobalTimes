@@ -18,7 +18,7 @@ export default function Country(props) {
             updateCountryArr(results.data.response.docs)
         })
         .catch(err=>console.log(err))
-    }, [])
+    }, [countryName])
 
     useEffect(() => {
         axios.get(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${country}&fq=glocations:(${country})&page=2&sort=newest&api-key=${apiKey}`)
@@ -26,7 +26,7 @@ export default function Country(props) {
             updateCountryArr2(results.data.response.docs)
         })
         .catch(err=>console.log(err))
-    }, [])
+    }, [countryName])
     
         return (
             <div className="countryMamaDiv">

@@ -28,9 +28,6 @@ function App() {
       <BrowserRouter>
         <NavBar loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser}/>
         <Switch>
-          <Route exact path = "/" render={props => 
-            !loggedInUser ? <Login {...props} setLoggedInUser={setLoggedInUser}/> : <Redirect to="/home"/>
-            }/>
           <Route exact path = "/signup" render={props => 
             !loggedInUser ? <Signup {...props} setLoggedInUser={setLoggedInUser}/> : <Redirect to="/home"/>
             }/>
@@ -46,6 +43,9 @@ function App() {
           <Route exact path = "/:name" render={props => (
             loggedInUser ? <Country {...props}/> : <Redirect to="/"/>
             )}/>
+          <Route exact path = "/" render={props => 
+            !loggedInUser ? <Login {...props} setLoggedInUser={setLoggedInUser}/> : <Redirect to="/home"/>
+          }/>
         </Switch>
       </BrowserRouter>
     </div>
